@@ -6,7 +6,63 @@ cask 'dymo-label' do
   name 'Dymo Label'
   homepage 'https://www.dymo.com/en-US/online-support'
 
-  pkg "DYMO Label v.#{version.major}.pkg"
+  pkg "DYMO Label v.#{version.major}.pkg", choices: [
+     {
+       'choiceIdentifier' => 'application',
+       'choiceAttribute'  => 'selected',
+       'attributeSetting' => 1,
+     },
+     {
+       'choiceIdentifier' => 'appsupport',
+       'choiceAttribute'  => 'selected',
+       'attributeSetting' => 1,
+     },
+     {
+       'choiceIdentifier' => 'frameworks',
+       'choiceAttribute'  => 'selected',
+       'attributeSetting' => 1,
+     },
+     {
+       'choiceIdentifier' => 'documents',
+       'choiceAttribute'  => 'selected',
+       'attributeSetting' => 1,
+     },
+     {
+       'choiceIdentifier' => 'officeaddins',
+       'choiceAttribute'  => 'selected',
+       'attributeSetting' => 0,
+     },
+     {
+       'choiceIdentifier' => 'safariaddin',
+       'choiceAttribute'  => 'selected',
+       'attributeSetting' => 0,
+     },
+     {
+       'choiceIdentifier' => 'addressbookaddin',
+       'choiceAttribute'  => 'selected',
+       'attributeSetting' => 0,
+     },
+     {
+       'choiceIdentifier' => 'npapiaddin',
+       'choiceAttribute'  => 'selected',
+       'attributeSetting' => 0,
+     },
+     {
+       'choiceIdentifier' => 'cups',
+       'choiceAttribute'  => 'selected',
+       'attributeSetting' => 1,
+     },
+     {
+       'choiceIdentifier' => 'uninstall',
+       'choiceAttribute'  => 'selected',
+       'attributeSetting' => 0,
+     },
+     {
+       'choiceIdentifier' => 'webservice',
+       'choiceAttribute'  => 'selected',
+       'attributeSetting' => 0,
+     }
+   ]
 
   uninstall launchctl: 'com.dymo.pnpd', pkgutil: [
      'com.dymo.cups',
